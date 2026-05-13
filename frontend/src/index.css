@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+  --bg: #0f172a;
+  --panel: rgba(15, 23, 42, 0.72);
+  --accent: #38bdf8;
+}
+
+:root[data-theme='aurora'] {
+  --accent: #22d3ee;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at top left, rgba(56, 189, 248, 0.16), transparent 32%),
+    radial-gradient(circle at top right, rgba(168, 85, 247, 0.14), transparent 34%),
+    linear-gradient(180deg, #0f172a 0%, #0b1220 100%);
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+::selection {
+  background: rgba(56, 189, 248, 0.35);
+  color: white;
+}
+
+.glass-panel {
+  background: var(--panel);
+  backdrop-filter: blur(24px);
+}
+
+.token-keyword {
+  color: #c084fc !important;
+  font-weight: 700;
+}
+
+.token-identifier {
+  color: #67e8f9 !important;
+}
+
+.token-integer,
+.token-float,
+.token-string,
+.token-char {
+  color: #86efac !important;
+}
+
+.token-operator {
+  color: #fdba74 !important;
+}
+
+.token-punctuation {
+  color: #7dd3fc !important;
+}
+
+.token-comment {
+  color: #94a3b8 !important;
+  font-style: italic;
+}
+
+.token-error {
+  color: #fecaca !important;
+  background: rgba(239, 68, 68, 0.18);
+  border-radius: 0.35rem;
+  padding: 0 0.2rem;
+}
+
+.error-gutter-glow {
+  box-shadow: inset 0 0 0 1px rgba(239, 68, 68, 0.25);
+}
+
+.monaco-editor .margin,
+.monaco-editor .monaco-scrollable-element {
+  background: transparent !important;
+}

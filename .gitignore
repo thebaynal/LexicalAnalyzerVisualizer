@@ -1,0 +1,14 @@
+node_modules
+dist
+coverage
+.env
+.env.local
+backend/.cache
+frontend/dist
+frontend/node_modules
+backend/node_modules
+*.exe
+*.out
+*.o
+*.obj
+.DS_Store
