@@ -71,3 +71,11 @@ See the `examples/` folder for standalone C snippets that you can upload into th
 ## Notes
 
 The Flex lexer lives in `lexer/lexical_analyzer.l`. The backend compiles it to a local cache directory when possible and executes the scanner to produce structured token output.
+
+## Methodology
+
+A user types or uploads a C-subset program into the Monaco editor. The React client sends it to `POST /api/analyze`. The Express backend compiles and invokes the Flex scanner when Flex and a C compiler are installed; otherwise it uses the JavaScript fallback lexer. The resulting token records include type, lexeme, line, column, and ending column. Error records include the offending text and its source location. The dashboard uses those records to highlight code, populate the token table, show lexical errors, and calculate token statistics. See [the architecture notes](docs/architecture.md).
+
+## Results and limitations
+
+The implementation produces structured token and error output, an interactive token table, statistical charts, and downloadable TXT/JSON reports. Included C examples cover basic declarations, control flow, comments, and errors. This is a teaching tool for lexical analysis of a C subset: it does not perform full C parsing, type checking, code generation, or execution. The fallback is a separate implementation and should not be assumed identical to Flex on every input. No published tokenization-accuracy benchmark or measured performance result is included.
